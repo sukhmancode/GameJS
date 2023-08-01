@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    gap:1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    color:#7d2ae8;
+    height: 90vh;
+    background-image: url('https://cdn.pixabay.com/photo/2020/03/22/06/57/game-background-4956017_1280.jpg');
+    background-color: #eee;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h2{
+    font-size: 1.8rem;
+    letter-spacing: 0.5px;
+}
+#play{
+    cursor: pointer;
+    background-color: brown ;
+    padding:0.3rem;
+    border-radius: 50%;
+}
+.modal{
+    padding:1rem;
+    background-color: #fff;
+    border-radius: 6px;
+    animation: modal 8s infinite ;
+   
+}
+
+@keyframes modal{
+
+    50%{
+        transform: translateY(5px);
+    }
+    100%{
+        transform: translateY(20px);
+    }
+    
+}
+.modal.active{
+    transform: translateY(-150px);
+    animation: modalactive 1s ;
+}
+@keyframes modalactive {
+    0%{
+        transform: translateY(0px);
+    }
+
+   
+    100%{
+        transform: translateY(-200px);
+    }
+    
+}
+
+input[type="text"]{
+    margin-top: 0.7rem;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    border: 1px solid #ccc;
+    padding:0.6rem;
+    font-size: 16px;
+}
+.container{
+    display: none;
+    flex-direction: column;
+ padding:2rem 5rem;
+    background-color: #fff;
+    box-shadow: 0 0 4px #ccc;
+    height: 70vh;
+    align-items: center;
+    width: 550px;
+    border-radius: 20px;
+gap:1rem;
+transition: all 0.3s ease;
+}
+.container.display{
+    display: flex;
+}
+.container.start .image1{
+    transform-origin: left;
+    animation: usershake 0.7s infinite
+}
+@keyframes usershake {
+    50%{
+        transform: rotate(30deg);
+    }
+    
+}
+.container.start .image2{
+    transform-origin: right;
+    animation: cpushake 0.7s infinite
+}
+@keyframes cpushake {
+    50%{
+        transform: rotate(-30deg);
+    }
+    
+}
+.image1 img{
+    width: 100px;
+    transform: rotate(90deg);
+}
+.image2 img{
+    width: 100px;
+    transform: rotate(-90deg) rotateY(180deg);
+}
+.main-image{
+    display: flex;
+    justify-content: space-between;
+    gap:6rem;
+}
+.selection{
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 5rem;
+}
+.selection img{
+    width: 50px;
+}
+.option-image{
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.2s ease-in;
+    
+}
+.container.start .option-image{
+    pointer-events: none;
+}
+.option-image:hover{
+    opacity: 1;
+
+}
+.option-image.active{
+    opacity: 1;
+}
+.option-image img{
+    pointer-events: none;
+}
