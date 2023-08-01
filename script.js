@@ -7,8 +7,8 @@ const playBtn=document.getElementById('play')
 const modal=document.querySelector('.modal')
 
 container.style.display="none"
-UserName.addEventListener('input',()=>{
-    if(!localStorage.getItem){
+UserName.addEventListener('input',(e)=>{
+    if(!localStorage.setItem){
         container.style.display="flex"
         modal.style.display="none"
     }
