@@ -5,20 +5,28 @@ const cpu=document.getElementById('cpu');
 const UserName=document.getElementById('name');
 const playBtn=document.getElementById('play')
 const modal=document.querySelector('.modal')
+
 var regex = /^[a-zA-Z ]{2,30}$/;
+let regex2= /^\s*$/ ;
 
 container.style.display="none"
-UserName.addEventListener('input',(e)=>{
+
+
   playBtn.addEventListener('click',()=>{
+    if(regex2.test(UserName.value)){
+      document.querySelector('.name-error').innerHTML="Please enter your name"
+      return regex2.test(UserName.value);
+    }
+   
     if(!regex.test(UserName.value)){
   document.querySelector('.name-error').innerHTML="Please enter an valid name"
   return regex.test(UserName.value);
-     
-  }else{
-    document.querySelector('.name-error').innerHTML=""
-
-  }
   
+     
+  }
+else{
+    document.querySelector('.name-error').innerHTML="";
+  }  
   
     modal.classList.add('active')
 
@@ -26,7 +34,7 @@ UserName.addEventListener('input',(e)=>{
     container.style.display="flex"
   
   })
-})
+
 optionImages.forEach((img,index)=>{
     img.addEventListener('click',function(e){
         img.classList.add('active');
