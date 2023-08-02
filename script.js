@@ -5,37 +5,28 @@ const cpu=document.getElementById('cpu');
 const UserName=document.getElementById('name');
 const playBtn=document.getElementById('play')
 const modal=document.querySelector('.modal')
+var regex = /^[a-zA-Z ]{2,30}$/;
 
 container.style.display="none"
 UserName.addEventListener('input',(e)=>{
-    if(!localStorage.setItem){
-        container.style.display="flex"
-        modal.style.display="none"
-    }
- 
   playBtn.addEventListener('click',()=>{
+    if(!regex.test(UserName.value)){
+  document.querySelector('.name-error').innerHTML="Please enter an valid name"
+  return regex.test(UserName.value);
+     
+  }else{
+    document.querySelector('.name-error').innerHTML=""
+
+  }
+  
+  
     modal.classList.add('active')
-    if(UserName.value==""){ 
-       alert("enter")
-    }
+
     after.innerText=`Let's Play ${UserName.value}!!`
     container.style.display="flex"
   
-  let user_data={
-    name:UserName.value
-};
-localStorage.setItem('user_data',JSON.stringify(user_data));
-
-let retrieveUserData=JSON.parse(localStorage.getItem('user_data'))  
-console.log(retrieveUserData);
-
   })
-  
- 
 })
-
-
-
 optionImages.forEach((img,index)=>{
     img.addEventListener('click',function(e){
         img.classList.add('active');
@@ -66,6 +57,5 @@ optionImages.forEach((img,index)=>{
 let outcomevalue=outcomes[uservalue+cpuvalue];
         document.getElementById('after').innerText=uservalue===cpuvalue?"Match DRAW" :`${outcomevalue} Wins`
 }, 2000);  
- 
 })
 })
