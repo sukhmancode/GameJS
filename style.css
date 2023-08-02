@@ -161,13 +161,11 @@ transition: all 0.3s ease;
     body{
         padding:0rem;
     }
-    .container{
-        width: 90%;
 
-    }
     .selection{
         align-items: center;
         justify-content: center;
+        gap:2rem;
     }
     
 }
@@ -181,23 +179,34 @@ transition: all 0.3s ease;
         align-items: center;
         justify-content: center;
         padding:2rem;
-        width: 100%;
+        width: 90%;
         height:100%
     }
  
     .main-image{
-        flex-direction: column;
-        gap:0rem;
+     
+        gap:2rem;
+    }
+    .selection{
+        gap:2rem;
     }
     
 }
 @media screen and (max-width:340px){
+    .container{
+        align-items: center;
+        justify-content: center;
+    }
+    .main-image {
+        flex-direction: column;
+        gap:0rem;
+    }
     .selection{
         gap:1rem;
     }
     .main-image img{
         width: 50px;
-        flex-direction: column;
+     
         gap:0rem;
     }
     .option-image img{
